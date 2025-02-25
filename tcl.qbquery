@@ -1,0 +1,36 @@
+﻿# commit
+
+set autocommit  = 0;
+
+SELECT * FROM student;
+
+insert into  student (sname,marks) values('Abhi',89);
+
+commit;
+
+# rollback
+
+update student set sname = 'jack' where rollno = 10;
+
+rollback;
+
+
+# savepoint
+
+set autocommit = 0;
+
+insert into  student(sname,marks)values('sumi',90);
+insert into  student(sname,marks)values('priya',99);
+insert into  student(sname,marks)values('mangu',100);
+
+SELECT * FROM student s;
+
+savepoint sp2;
+
+SELECT * FROM student s;
+
+delete from student;
+
+rollback to sp2;
+
+SELECT * FROM student s;
